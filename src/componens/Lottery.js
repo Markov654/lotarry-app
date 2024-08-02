@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import LotteryTicket from './LotteryTicket';
 
 
 class Lottery extends Component{
@@ -9,6 +10,23 @@ class Lottery extends Component{
       }
        
     }
+
+    renderTickets (){
+      const lotteryTickets = this.props.tickets.map( (ticke, index)=> {
+        return (
+          <LotteryTicket 
+           color = {ticke.color}
+           number = {ticke.number}
+           index  = {index}
+           key    = {index}
+           />
+        );
+      });
+      
+      return lotteryTickets;
+    }
+
+
   render() {
     return(
         <>
@@ -16,6 +34,9 @@ class Lottery extends Component{
         {this.renderButton()}
         <br></br>
         <small>оставащи: {this.props.remaningTickets}</small>
+        <br></br>
+        <hr></hr>
+        {this.renderTickets()}
         </>
     );
   }

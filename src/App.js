@@ -23,6 +23,7 @@ class App extends Component{
   }
 
   renderApp(){
+    const {  tickets , remaningTickets} = this.state;
     const actions = {};
 
     actions.registerTicket = this.registerTicket;
@@ -30,7 +31,8 @@ class App extends Component{
     return(
       <Lottery
         actions         = {actions}
-        remaningTickets = {this.state.remaningTickets}
+        tickets         = {tickets}
+        remaningTickets = {remaningTickets}
     />
     )
   }
@@ -38,7 +40,7 @@ class App extends Component{
 
 
   render() {
-    console.log(this.state.tickets);
+   console.log(this.state.tickets)
     return(
       
      
