@@ -2,19 +2,26 @@ import React,{Component} from 'react';
 import LotteryTicket from './LotteryTicket';
 
 
+
 class Lottery extends Component{
     renderButton(){
       const {remaningTickets,actions} = this.props
       if(remaningTickets > 0){
         return <button onClick={actions.registerTicket}>КУПИ БИЛЕТ</button>;
       }
+      return <button onClick={actions.finish}>ПРОВЕРИ ЗА ПЕЧАЛБА</button>;
        
     }
 
     renderTickets (){
-      const lotteryTickets = this.props.tickets.map( (ticke, index)=> {
+      //  remove ticket
+      const {tickets,actions} = this.props;
+      const lotteryTicketActions = {removeTicket: actions.removeTicket};
+      const lotteryTickets = tickets.map( (ticke, index)=> {
         return (
-          <LotteryTicket 
+          <LotteryTicket
+          // add  remove ticket
+           actions = {lotteryTicketActions} 
            color = {ticke.color}
            number = {ticke.number}
            index  = {index}

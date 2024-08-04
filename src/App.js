@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import Lottery from './componens/Lottery';
+import Final from './componens/Final';
 import { getRandomNumber } from './Helper/Utils';
-import { registerTicket } from './Helper/Action';
+import { registerTicket, removeTicket, finish, reset} from './Helper/Action';
 import './App.css';
 // Keep state and manipolate state
 
@@ -14,19 +15,41 @@ class App extends Component{
     this.state ={
         winningNumber : getRandomNumber(),
         tickets       : [],
-        remaningTickets: 5,
+        remaningTickets: 7,
         finished      : false
 
     };
 
     this.registerTicket = registerTicket.bind( this );
+    //  remove ticket
+    this.removeTicket = removeTicket.bind( this );
+    // RESET main state 
+    this.finish = finish.bind( this );
+    // reset game
+    this.reset = reset.bind( this );
+
   }
 
   renderApp(){
-    const {  tickets , remaningTickets} = this.state;
+    const {  tickets , remaningTickets, finished, winningNumber} = this.state;
     const actions = {};
+     
+    if( finished ) {
+      actions.reset = this.reset;
+      return (
+         <Final
+         actions   = {actions}
+         tickets = {tickets}
+         winningNumber = {winningNumber}
+         />
+      );
+    }
+
 
     actions.registerTicket = this.registerTicket;
+    actions.removeTicket =  this.removeTicket;
+    actions.finish       = this.finish;
+   
     
     return(
       <Lottery
