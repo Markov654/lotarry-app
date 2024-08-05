@@ -20,7 +20,7 @@ class App extends Component{
 
     };
 
-    this.registerTicket = registerTicket.bind( this );
+    this.registerTicket = registerTicket.bind(this);
     //  remove ticket
     this.removeTicket = removeTicket.bind( this );
     // RESET main state 
@@ -63,7 +63,7 @@ class App extends Component{
 
 
   render() {
-   console.log(this.state.tickets)
+
     return(
       
      

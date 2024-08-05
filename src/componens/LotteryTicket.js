@@ -8,7 +8,8 @@ class LotteryTicket extends Component{
       const {actions, index,color, number} = this.props;
 
     return(
-    <div style={{backgroundColor : color,
+    <div style={{
+              backgroundColor : color,
               padding          : 5,
               width            : "60%",
               margin           : "auto"

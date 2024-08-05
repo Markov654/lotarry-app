@@ -1,7 +1,7 @@
-import { getRandomNumber, getRandomColor } from './Utils';
+import { getRandomNumber, getRandomColor} from './Utils';
 
 
-export function registerTicket (){
+export function registerTicket(){
     const newTicket = {
         number  : getRandomNumber(),
         color : getRandomColor()

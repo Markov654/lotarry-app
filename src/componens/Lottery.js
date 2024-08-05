@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import LotteryTicket from './LotteryTicket';
+import LotteryTicket from './LotteryTicket'
 
 
 
@@ -13,17 +13,17 @@ class Lottery extends Component{
        
     }
 
-    renderTickets (){
+    renderTickets(){
       //  remove ticket
       const {tickets,actions} = this.props;
       const lotteryTicketActions = {removeTicket: actions.removeTicket};
-      const lotteryTickets = tickets.map( (ticke, index)=> {
+      const lotteryTickets = tickets.map( (ticket, index)=> {
         return (
           <LotteryTicket
           // add  remove ticket
            actions = {lotteryTicketActions} 
-           color = {ticke.color}
-           number = {ticke.number}
+           color = {ticket.color}
+           number = {ticket.number}
            index  = {index}
            key    = {index}
            />
